@@ -1,0 +1,151 @@
+[run_omp] REPO_ROOT  = /shared/home/das1301/project-das1301
+[run_omp] SCRIPT_DIR = /shared/home/das1301/project-das1301/src/openmp
+[run_omp] DATA_BIN   = /shared/home/das1301/project-das1301/data/v101.bin
+[run_omp] node       = general-dy-general-cr-8,  user = das1301
+=== build ===
+rm -f ekf_omp ekf_omp_debug
+/shared/courseSharedFolders/161588outer/161588/spack/var/spack/environments/cs2050-cpu/.spack-env/view/bin/g++ -std=c++17 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -fopenmp -I../common -o ekf_omp ekf_omp.cpp
+=== strong  M=1024  threads=1 ===
+[ekf_omp] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_omp] M=1024  seed=42  runs=5 (warmup=1)  update_period=10  threads=1
+  run 0  wall=11427.81 ms  checksum=7623.96418582435
+  run 1  wall=11418.09 ms  checksum=7623.96418582435
+  run 2  wall=11415.75 ms  checksum=7623.96418582435
+  run 3  wall=11412.62 ms  checksum=7623.96418582435
+  run 4  wall=11423.71 ms  checksum=7623.96418582435
+[ekf_omp] median wall = 11418.09 ms over 5 runs
+[ekf_omp] appended 5 rows to results/strong.csv
+=== strong  M=1024  threads=2 ===
+[ekf_omp] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_omp] M=1024  seed=42  runs=5 (warmup=1)  update_period=10  threads=2
+  run 0  wall=5760.81 ms  checksum=7623.96418582435
+  run 1  wall=5759.65 ms  checksum=7623.96418582435
+  run 2  wall=5759.58 ms  checksum=7623.96418582435
+  run 3  wall=5760.33 ms  checksum=7623.96418582435
+  run 4  wall=5759.22 ms  checksum=7623.96418582435
+[ekf_omp] median wall = 5759.65 ms over 5 runs
+[ekf_omp] appended 5 rows to results/strong.csv
+=== strong  M=1024  threads=4 ===
+[ekf_omp] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_omp] M=1024  seed=42  runs=5 (warmup=1)  update_period=10  threads=4
+  run 0  wall=2890.86 ms  checksum=7623.96418582435
+  run 1  wall=2890.83 ms  checksum=7623.96418582435
+  run 2  wall=2891.61 ms  checksum=7623.96418582435
+  run 3  wall=2890.90 ms  checksum=7623.96418582435
+  run 4  wall=2891.05 ms  checksum=7623.96418582435
+[ekf_omp] median wall = 2890.90 ms over 5 runs
+[ekf_omp] appended 5 rows to results/strong.csv
+=== strong  M=1024  threads=8 ===
+[ekf_omp] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_omp] M=1024  seed=42  runs=5 (warmup=1)  update_period=10  threads=8
+  run 0  wall=1444.55 ms  checksum=7623.96418582435
+  run 1  wall=1444.63 ms  checksum=7623.96418582435
+  run 2  wall=1444.64 ms  checksum=7623.96418582435
+  run 3  wall=1445.69 ms  checksum=7623.96418582435
+  run 4  wall=1445.21 ms  checksum=7623.96418582435
+[ekf_omp] median wall = 1444.64 ms over 5 runs
+[ekf_omp] appended 5 rows to results/strong.csv
+=== strong  M=1024  threads=16 ===
+[ekf_omp] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_omp] M=1024  seed=42  runs=5 (warmup=1)  update_period=10  threads=16
+  run 0  wall=726.51 ms  checksum=7623.96418582435
+  run 1  wall=724.58 ms  checksum=7623.96418582435
+  run 2  wall=726.03 ms  checksum=7623.96418582435
+  run 3  wall=725.92 ms  checksum=7623.96418582435
+  run 4  wall=726.95 ms  checksum=7623.96418582435
+[ekf_omp] median wall = 726.03 ms over 5 runs
+[ekf_omp] appended 5 rows to results/strong.csv
+=== strong  M=1024  threads=32 ===
+[ekf_omp] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_omp] M=1024  seed=42  runs=5 (warmup=1)  update_period=10  threads=32
+  run 0  wall=642.69 ms  checksum=7623.96418582435
+  run 1  wall=645.29 ms  checksum=7623.96418582435
+  run 2  wall=646.64 ms  checksum=7623.96418582435
+  run 3  wall=645.67 ms  checksum=7623.96418582435
+  run 4  wall=644.22 ms  checksum=7623.96418582435
+[ekf_omp] median wall = 645.29 ms over 5 runs
+[ekf_omp] appended 5 rows to results/strong.csv
+=== weak    M=32  threads=1 ===
+[ekf_omp] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_omp] M=32  seed=42  runs=5 (warmup=1)  update_period=10  threads=1
+  run 0  wall=357.65 ms  checksum=238.759440010979
+  run 1  wall=357.75 ms  checksum=238.759440010979
+  run 2  wall=357.77 ms  checksum=238.759440010979
+  run 3  wall=357.71 ms  checksum=238.759440010979
+  run 4  wall=357.70 ms  checksum=238.759440010979
+[ekf_omp] median wall = 357.71 ms over 5 runs
+[ekf_omp] appended 5 rows to results/weak.csv
+=== weak    M=64  threads=2 ===
+[ekf_omp] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_omp] M=64  seed=42  runs=5 (warmup=1)  update_period=10  threads=2
+  run 0  wall=359.09 ms  checksum=477.471008562066
+  run 1  wall=359.20 ms  checksum=477.471008562066
+  run 2  wall=359.06 ms  checksum=477.471008562066
+  run 3  wall=359.06 ms  checksum=477.471008562066
+  run 4  wall=359.04 ms  checksum=477.471008562066
+[ekf_omp] median wall = 359.06 ms over 5 runs
+[ekf_omp] appended 5 rows to results/weak.csv
+=== weak    M=128  threads=4 ===
+[ekf_omp] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_omp] M=128  seed=42  runs=5 (warmup=1)  update_period=10  threads=4
+  run 0  wall=363.18 ms  checksum=953.750084457513
+  run 1  wall=363.13 ms  checksum=953.750084457513
+  run 2  wall=363.13 ms  checksum=953.750084457513
+  run 3  wall=363.10 ms  checksum=953.750084457513
+  run 4  wall=363.15 ms  checksum=953.750084457513
+[ekf_omp] median wall = 363.13 ms over 5 runs
+[ekf_omp] appended 5 rows to results/weak.csv
+=== weak    M=256  threads=8 ===
+[ekf_omp] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_omp] M=256  seed=42  runs=5 (warmup=1)  update_period=10  threads=8
+  run 0  wall=364.07 ms  checksum=1906.96847845884
+  run 1  wall=364.17 ms  checksum=1906.96847845884
+  run 2  wall=364.03 ms  checksum=1906.96847845884
+  run 3  wall=364.07 ms  checksum=1906.96847845884
+  run 4  wall=364.63 ms  checksum=1906.96847845884
+[ekf_omp] median wall = 364.07 ms over 5 runs
+[ekf_omp] appended 5 rows to results/weak.csv
+=== weak    M=512  threads=16 ===
+[ekf_omp] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_omp] M=512  seed=42  runs=5 (warmup=1)  update_period=10  threads=16
+  run 0  wall=361.87 ms  checksum=3811.42442074841
+  run 1  wall=361.49 ms  checksum=3811.42442074841
+  run 2  wall=361.82 ms  checksum=3811.42442074841
+  run 3  wall=361.63 ms  checksum=3811.42442074841
+  run 4  wall=361.75 ms  checksum=3811.42442074841
+[ekf_omp] median wall = 361.75 ms over 5 runs
+[ekf_omp] appended 5 rows to results/weak.csv
+=== weak    M=1024  threads=32 ===
+[ekf_omp] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_omp] M=1024  seed=42  runs=5 (warmup=1)  update_period=10  threads=32
+  run 0  wall=653.29 ms  checksum=7623.96418582435
+  run 1  wall=654.02 ms  checksum=7623.96418582435
+  run 2  wall=654.73 ms  checksum=7623.96418582435
+  run 3  wall=654.04 ms  checksum=7623.96418582435
+  run 4  wall=654.28 ms  checksum=7623.96418582435
+[ekf_omp] median wall = 654.04 ms over 5 runs
+[ekf_omp] appended 5 rows to results/weak.csv
+[ekf_omp] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_omp] M=128  seed=42  runs=1 (warmup=1)  update_period=10  threads=16
+  run 0  wall=90.29 ms  checksum=953.750084457513
+[ekf_omp] median wall = 90.29 ms over 1 runs
+[ekf_omp] wrote results/golden.csv (128 rows)
+=== correctness check vs serial ===
+reference   : /shared/home/das1301/project-das1301/src/serial/results/golden.csv
+candidate   : results/golden.csv
+M           : 128  (m-indices match: True)
+max abs diff: 1.776e-15
+max rel diff: 2.401e-16  at m=34
+tolerance   : 1e-09
+PASS
+=== plot scaling ===
+wrote results/strong_scaling.png
+wrote results/weak_scaling.png
+=== done ===
+total 120K
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 7.8K May  1 18:48 ekf_omp_102666.out
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 2.8K May  1 18:48 golden.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 1.6K May  1 18:48 strong.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  56K May  1 18:48 strong_scaling.png
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 1.5K May  1 18:48 weak.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  44K May  1 18:48 weak_scaling.png

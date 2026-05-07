@@ -1,0 +1,137 @@
+# =====================================================================
+# Data — never commit the EuRoC payload or derived binaries.
+# Re-fetch with `bash data/fetch_euroc.sh`; rebuild with `python data/preprocess.py`.
+# (.png plots ARE tracked — they live alongside data/ and report/figures/.)
+# =====================================================================
+data/raw/
+data/*.zip
+data/*.bin
+data/*.npy
+data/*.npz
+
+# =====================================================================
+# Compiled C/C++/CUDA artifacts
+# =====================================================================
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.lib
+*.exp
+
+# CUDA-specific
+*.cubin
+*.fatbin
+*.ptx
+
+# Per-part executables (rebuild via `make` in each impl directory)
+serial/ekf_serial
+serial/ekf_serial_debug
+openmp/ekf_omp
+openmp/ekf_omp_debug
+openmp/ekf_omp_prof
+mpi/ekf_mpi
+mpi/ekf_mpi_debug
+mpi/ekf_mpi_prof
+cuda/ekf_cuda
+cuda/ekf_cuda_prof
+
+# Generic build directories
+build/
+cmake-build-*/
+out/
+
+# =====================================================================
+# Python
+# =====================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.ENV/
+*.egg-info/
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# =====================================================================
+# Slurm / cluster job artifacts
+# =====================================================================
+# Default `slurm-<jobid>.out` files (named outputs like `ekf_omp_<jobid>.out`
+# are not matched here — keep those if you want them in the repo).
+slurm-*.out
+*.err
+
+# =====================================================================
+# Profiling outputs — keep summary text/CSV files (small) but exclude the
+# heavy raw working directories the profilers create.  Re-running the
+# corresponding `run_*_profile.slurm` / `run_vtune*.slurm` script regenerates
+# the raw data; the summary files plus report/report.md tables are the
+# durable evidence.
+# =====================================================================
+# VTune raw result directories (binary blobs, multi-MB)
+**/results/vtune_*/
+# but keep the summary text/csv files alongside them:
+!**/results/vtune_*_summary.txt
+!**/results/vtune_*_summary.csv
+!**/results/vtune_*_runs.csv
+# Legacy patterns (in case anything else lands here)
+*.vtune/
+r0*hs/
+r0*pp/
+
+# JAX profiler raw trace tree (the .trace.json.gz is ~20 MB and the
+# .xplane.pb is ~200 MB — both regenerable from `run_jax_profile.slurm`).
+# Keep only the parsed top-ops CSV that the report cites.
+additional/results/jax_profile/
+
+# Nsight Systems / Compute raw outputs (small files OK; large session ones not)
+*.qdrep
+*.qdstrm
+
+# =====================================================================
+# Editor / OS / agent state
+# =====================================================================
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Core dumps and crash artifacts
+core
+core.*
+vgcore.*
+
+# Backup / patch files
+*.bak
+*.orig
+*.rej
+
+# =====================================================================
+# LaTeX build artifacts (report or plan compilation)
+# =====================================================================
+*.aux
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
+*.log

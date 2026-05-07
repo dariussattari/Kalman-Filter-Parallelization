@@ -1,0 +1,119 @@
+
+=== vtune hotspots(sw) ranks=4 M=2048 (mpirun) ===
+vtune: Warning: Only user space will be profiled due to credentials lack. Consider changing /proc/sys/kernel/perf_event_paranoid file for enabling kernel space profiling.
+vtune: Collection started. To stop the collection, either press CTRL-C or enter from another console window: vtune -r /shared/home/das1301/project-das1301/src/mpi/results/vtune_r4_sw -command stop.
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  general-dy-general-cr-2
+  System call: unlink(2) /dev/shm/vader_segment.general-dy-general-cr-2.5661.c3510001.2
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[general-dy-general-cr-2:09479] 3 more processes have sent help message help-opal-shmem-mmap.txt / sys call fail
+[general-dy-general-cr-2:09479] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+vtune: Collection stopped.
+vtune: Using result path `/shared/home/das1301/project-das1301/src/mpi/results/vtune_r4_sw'
+vtune: Executing actions  0 %                                                  vtune: Executing actions 100 %                                                 vtune: Executing actions 100 % done                                            
+vtune: Executing actions 43 % Resolving information for `mca_oob_tcp.so'       
+vtune: Warning: Cannot locate debugging information for file `/opt/amazon/openmpi/lib64/openmpi/mca_oob_tcp.so'.
+vtune: Executing actions 44 % Resolving information for `mca_oob_tcp.so'       vtune: Executing actions 45 % Resolving information for `mca_oob_tcp.so'       vtune: Executing actions 45 % Resolving bottom user stack information          vtune: Executing actions 46 % Resolving bottom user stack information          vtune: Executing actions 47 % Resolving bottom user stack information          vtune: Executing actions 47 % Resolving thread name information                vtune: Executing actions 48 % Resolving thread name information                vtune: Executing actions 48 % Resolving call target names for dynamic code     vtune: Executing actions 50 % Resolving call target names for dynamic code     vtune: Executing actions 50 % Resolving interrupt name information             vtune: Executing actions 53 % Resolving interrupt name information             vtune: Executing actions 53 % Processing profile metrics and debug information vtune: Executing actions 54 % Processing profile metrics and debug information vtune: Executing actions 55 % Processing profile metrics and debug information vtune: Executing actions 56 % Processing profile metrics and debug information vtune: Executing actions 57 % Processing profile metrics and debug information vtune: Executing actions 58 % Processing profile metrics and debug information vtune: Executing actions 60 % Processing profile metrics and debug information vtune: Executing actions 60 % Setting data model parameters                    vtune: Executing actions 60 % Precomputing frequently used data                vtune: Executing actions 60 % Precomputing frequently used data                vtune: Executing actions 63 % Precomputing frequently used data                vtune: Executing actions 66 % Precomputing frequently used data                vtune: Executing actions 69 % Precomputing frequently used data                vtune: Executing actions 72 % Precomputing frequently used data                vtune: Executing actions 72 % Updating precomputed scalar metrics              vtune: Executing actions 75 % Updating precomputed scalar metrics              vtune: Executing actions 75 % Discarding redundant overtime data               vtune: Executing actions 78 % Discarding redundant overtime data               vtune: Executing actions 78 % Saving the result                                vtune: Executing actions 82 % Saving the result                                vtune: Executing actions 85 % Saving the result                                vtune: Executing actions 99 % Saving the result                                vtune: Executing actions 100 % Saving the result                               vtune: Executing actions 100 % done                                            
+vtune: Using result path `/shared/home/das1301/project-das1301/src/mpi/results/vtune_r4_sw'
+vtune: Executing actions  0 %                                                  vtune: Executing actions  0 % Finalizing results                               vtune: Executing actions 50 % Finalizing results                               vtune: Executing actions 50 % Generating a report                              vtune: Executing actions 50 % Setting data model parameters                    vtune: Executing actions 75 % Setting data model parameters                    vtune: Executing actions 75 % Generating a report                              vtune: Executing actions 100 % Generating a report                             vtune: Executing actions 100 % done                                            
+vtune: Using result path `/shared/home/das1301/project-das1301/src/mpi/results/vtune_r4_sw'
+vtune: Executing actions  0 %                                                  vtune: Executing actions  0 % Finalizing results                               vtune: Executing actions 50 % Finalizing results                               vtune: Executing actions 50 % Generating a report                              vtune: Executing actions 50 % Setting data model parameters                    vtune: Executing actions 75 % Setting data model parameters                    vtune: Executing actions 75 % Generating a report                              vtune: Executing actions 100 % Generating a report                             vtune: Executing actions 100 % done                                            
+
+===== r4 SUMMARY =====
+Elapsed Time: 27.364s
+    CPU Time: 92.999s
+        Effective Time: 92.999s
+        Spin Time: 0s
+        Overhead Time: 0s
+    Total Thread Count: 20
+    Paused Time: 0s
+
+Top Hotspots
+Function          Module        CPU Time  % of CPU Time(%)
+----------------  ------------  --------  ----------------
+ekf::matmul_AB_T  ekf_mpi_prof   38.630s             41.5%
+sincos            libm.so.6      14.540s             15.6%
+ekf::matmul       ekf_mpi_prof   14.130s             15.2%
+ekf::inv6         ekf_mpi_prof    5.111s              5.5%
+ekf::predict      ekf_mpi_prof    4.778s              5.1%
+[Others]          N/A            15.810s             17.0%
+Effective Physical Core Utilization: 14.6% (3.510 out of 24)
+ | The metric value is low, which may signal a poor physical CPU cores
+ | utilization caused by:
+ |     - load imbalance
+ |     - threading runtime overhead
+ |     - contended synchronization
+ |     - thread/process underutilization
+ |     - incorrect affinity that utilizes logical cores instead of physical
+
+=== vtune hotspots(sw) ranks=8 M=2048 (mpirun) ===
+vtune: Warning: Only user space will be profiled due to credentials lack. Consider changing /proc/sys/kernel/perf_event_paranoid file for enabling kernel space profiling.
+vtune: Collection started. To stop the collection, either press CTRL-C or enter from another console window: vtune -r /shared/home/das1301/project-das1301/src/mpi/results/vtune_r8_sw -command stop.
+vtune: Collection stopped.
+vtune: Using result path `/shared/home/das1301/project-das1301/src/mpi/results/vtune_r8_sw'
+vtune: Executing actions  0 %                                                  vtune: Executing actions 100 %                                                 vtune: Executing actions 100 % done                                            
+vtune: Executing actions 44 % Resolving information for `libm.so.6'            
+vtune: Warning: Cannot locate debugging information for file `/lib64/libm.so.6'.
+vtune: Executing actions 45 % Resolving information for `libm.so.6'            vtune: Executing actions 45 % Resolving bottom user stack information          vtune: Executing actions 46 % Resolving bottom user stack information          vtune: Executing actions 47 % Resolving bottom user stack information          vtune: Executing actions 47 % Resolving thread name information                vtune: Executing actions 48 % Resolving thread name information                vtune: Executing actions 48 % Resolving call target names for dynamic code     vtune: Executing actions 50 % Resolving call target names for dynamic code     vtune: Executing actions 50 % Resolving interrupt name information             vtune: Executing actions 53 % Resolving interrupt name information             vtune: Executing actions 53 % Processing profile metrics and debug information vtune: Executing actions 54 % Processing profile metrics and debug information vtune: Executing actions 55 % Processing profile metrics and debug information vtune: Executing actions 56 % Processing profile metrics and debug information vtune: Executing actions 57 % Processing profile metrics and debug information vtune: Executing actions 58 % Processing profile metrics and debug information vtune: Executing actions 60 % Processing profile metrics and debug information vtune: Executing actions 60 % Setting data model parameters                    vtune: Executing actions 60 % Precomputing frequently used data                vtune: Executing actions 60 % Precomputing frequently used data                vtune: Executing actions 63 % Precomputing frequently used data                vtune: Executing actions 66 % Precomputing frequently used data                vtune: Executing actions 69 % Precomputing frequently used data                vtune: Executing actions 72 % Precomputing frequently used data                vtune: Executing actions 72 % Updating precomputed scalar metrics              vtune: Executing actions 75 % Updating precomputed scalar metrics              vtune: Executing actions 75 % Discarding redundant overtime data               vtune: Executing actions 78 % Discarding redundant overtime data               vtune: Executing actions 78 % Saving the result                                vtune: Executing actions 82 % Saving the result                                vtune: Executing actions 85 % Saving the result                                vtune: Executing actions 100 % Saving the result                               vtune: Executing actions 100 % done                                            
+vtune: Using result path `/shared/home/das1301/project-das1301/src/mpi/results/vtune_r8_sw'
+vtune: Executing actions  0 %                                                  vtune: Executing actions  0 % Finalizing results                               vtune: Executing actions 50 % Finalizing results                               vtune: Executing actions 50 % Generating a report                              vtune: Executing actions 50 % Setting data model parameters                    vtune: Executing actions 75 % Setting data model parameters                    vtune: Executing actions 75 % Generating a report                              vtune: Executing actions 100 % Generating a report                             vtune: Executing actions 100 % done                                            
+vtune: Using result path `/shared/home/das1301/project-das1301/src/mpi/results/vtune_r8_sw'
+vtune: Executing actions  0 %                                                  vtune: Executing actions  0 % Finalizing results                               vtune: Executing actions 50 % Finalizing results                               vtune: Executing actions 50 % Generating a report                              vtune: Executing actions 50 % Setting data model parameters                    vtune: Executing actions 75 % Setting data model parameters                    vtune: Executing actions 75 % Generating a report                              vtune: Executing actions 100 % Generating a report                             vtune: Executing actions 100 % done                                            
+
+===== r8 SUMMARY =====
+Elapsed Time: 24.283s
+    CPU Time: 164.779s
+        Effective Time: 164.769s
+        Spin Time: 0.010s
+        Overhead Time: 0s
+    Total Thread Count: 36
+    Paused Time: 0s
+
+Top Hotspots
+Function          Module        CPU Time  % of CPU Time(%)
+----------------  ------------  --------  ----------------
+ekf::matmul_AB_T  ekf_mpi_prof   69.716s             42.3%
+ekf::matmul       ekf_mpi_prof   25.140s             15.3%
+sincos            libm.so.6      24.371s             14.8%
+ekf::inv6         ekf_mpi_prof    9.700s              5.9%
+ekf::predict      ekf_mpi_prof    7.451s              4.5%
+[Others]          N/A            28.400s             17.2%
+Effective Physical Core Utilization: 15.0% (3.606 out of 24)
+ | The metric value is low, which may signal a poor physical CPU cores
+ | utilization caused by:
+ |     - load imbalance
+ |     - threading runtime overhead
+ |     - contended synchronization
+ |     - thread/process underutilization
+ |     - incorrect affinity that utilizes logical cores instead of physical
+
+=== done ===
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  694 May  6 19:30 ekf_mpi_vtune_108316.out
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 2.2K May  6 19:32 ekf_mpi_vtune_108321.out
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  187 May  7 03:15 ekf_mpi_vtune_r8_109254.out
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  187 May  7 03:22 ekf_mpi_vtune_r8_109263.out
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  378 May  7 03:33 ekf_mpi_vtune_r8_109307.out
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 1.1K May  7 04:08 ekf_mpi_vtune_r8_109353.out
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  845 May  7 13:04 ekf_mpi_vtune_r8_110097.out
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  11K May  7 13:07 ekf_mpi_vtune_r8only_110098.out
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  16K May  7 13:13 ekf_mpi_vtune_r8only_110104.out
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  14K May  7 13:23 ekf_mpi_vtune_r8only_110110.out
+drwxrwxr-x 7 das1301 ondemand-users-1025173 6.0K May  7 03:12 vtune_r4.general-dy-general-cr-14
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  141 May  6 19:32 vtune_r4_runs.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 3.9K May  7 03:12 vtune_r4_summary.txt
+drwxrwxr-x 7 das1301 ondemand-users-1025173 6.0K May  7 13:22 vtune_r4_sw
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  427 May  7 13:22 vtune_r4_sw_runs.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 1.4K May  7 13:22 vtune_r4_sw_summary.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 2.8K May  7 13:22 vtune_r4_sw_summary.txt
+drwxrwxr-x 5 das1301 ondemand-users-1025173 6.0K May  7 03:48 vtune_r8
+drwxrwxr-x 7 das1301 ondemand-users-1025173 6.0K May  7 13:23 vtune_r8_sw
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  191 May  7 13:23 vtune_r8_sw_runs.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 1.5K May  7 13:23 vtune_r8_sw_summary.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 2.8K May  7 13:23 vtune_r8_sw_summary.txt
+-rwxrwxr-x 1 das1301 ondemand-users-1025173  385 May  6 19:32 vtune_rank0_wrapper.sh
+-rwxrwxr-x 1 das1301 ondemand-users-1025173  408 May  7 13:04 vtune_rank0_wrapper_r8.sh

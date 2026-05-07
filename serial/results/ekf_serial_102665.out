@@ -1,0 +1,68 @@
+[run_serial] REPO_ROOT  = /shared/home/das1301/project-das1301
+[run_serial] SCRIPT_DIR = /shared/home/das1301/project-das1301/src/serial
+[run_serial] DATA_BIN   = /shared/home/das1301/project-das1301/data/v101.bin
+[run_serial] node       = general-dy-general-cr-1,  user = das1301
+=== build ===
+rm -f ekf_serial ekf_serial_debug
+/shared/courseSharedFolders/161588outer/161588/spack/var/spack/environments/cs2050-cpu/.spack-env/view/bin/g++ -std=c++17 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -I../common -o ekf_serial ekf_serial.cpp
+=== M sweep (warmup=1, runs=5 each) ===
+--- M=16 ---
+[ekf_serial] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_serial] M=16  seed=42  runs=5 (warmup=1)  update_period=10
+  run 0  wall=180.70 ms  checksum=119.252609139074
+  run 1  wall=180.73 ms  checksum=119.252609139074
+  run 2  wall=181.07 ms  checksum=119.252609139074
+  run 3  wall=183.55 ms  checksum=119.252609139074
+  run 4  wall=180.75 ms  checksum=119.252609139074
+[ekf_serial] median wall = 180.75 ms over 5 runs
+[ekf_serial] appended 5 rows to results/results.csv
+--- M=64 ---
+[ekf_serial] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_serial] M=64  seed=42  runs=5 (warmup=1)  update_period=10
+  run 0  wall=714.09 ms  checksum=477.471008562066
+  run 1  wall=713.44 ms  checksum=477.471008562066
+  run 2  wall=714.04 ms  checksum=477.471008562066
+  run 3  wall=710.69 ms  checksum=477.471008562066
+  run 4  wall=713.96 ms  checksum=477.471008562066
+[ekf_serial] median wall = 713.96 ms over 5 runs
+[ekf_serial] appended 5 rows to results/results.csv
+--- M=256 ---
+[ekf_serial] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_serial] M=256  seed=42  runs=5 (warmup=1)  update_period=10
+  run 0  wall=2857.02 ms  checksum=1906.96847845884
+  run 1  wall=2860.88 ms  checksum=1906.96847845884
+  run 2  wall=2857.54 ms  checksum=1906.96847845884
+  run 3  wall=2856.90 ms  checksum=1906.96847845884
+  run 4  wall=2860.94 ms  checksum=1906.96847845884
+[ekf_serial] median wall = 2857.54 ms over 5 runs
+[ekf_serial] appended 5 rows to results/results.csv
+--- M=1024 ---
+[ekf_serial] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_serial] M=1024  seed=42  runs=5 (warmup=1)  update_period=10
+  run 0  wall=11423.95 ms  checksum=7623.96418582435
+  run 1  wall=11418.98 ms  checksum=7623.96418582435
+  run 2  wall=11407.90 ms  checksum=7623.96418582435
+  run 3  wall=11432.04 ms  checksum=7623.96418582435
+  run 4  wall=11448.58 ms  checksum=7623.96418582435
+[ekf_serial] median wall = 11423.95 ms over 5 runs
+[ekf_serial] appended 5 rows to results/results.csv
+=== golden checksum + trajectory (M=128) ===
+[ekf_serial] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_serial] M=128  seed=42  runs=1 (warmup=1)  update_period=10
+  run 0  wall=1433.49 ms  checksum=953.750084457513
+[ekf_serial] median wall = 1433.49 ms over 1 runs
+[ekf_serial] wrote results/golden.csv (128 rows)
+[ekf_serial] wrote results/trajectory.csv (28712 rows)
+=== plot trajectory vs ground truth ===
+position RMSE per axis [m]   : [0.01147422 0.0152202  0.00649548]
+attitude RMSE per axis [rad] : [0.10188054 0.10019399 0.12669725]
+wrote results/serial_trajectory.png
+wrote results/serial_trajectory_attitude.png
+=== done ===
+total 3.8M
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 3.4K May  1 18:45 ekf_serial_102665.out
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 2.8K May  1 18:45 golden.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 1.1K May  1 18:45 results.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 173K May  1 18:45 serial_trajectory.png
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 190K May  1 18:45 serial_trajectory_attitude.png
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 3.4M May  1 18:45 trajectory.csv

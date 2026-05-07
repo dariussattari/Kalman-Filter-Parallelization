@@ -1,0 +1,85 @@
+Elapsed Time: 4.392s
+    SP GFLOPS: 0.000
+    DP GFLOPS: 4.207
+    x87 GFLOPS: 0.000
+    CPI Rate: 1.226
+     | The CPI may be too high. This could be caused by issues such as memory
+     | stalls, instruction starvation, branch misprediction or long latency
+     | instructions. Explore the other hardware-related metrics to identify what
+     | is causing high CPI.
+     |
+    Average CPU Frequency: 6.140 GHz
+    Total Thread Count: 2
+Effective Physical Core Utilization: 1.8% (0.425 out of 24)
+ | The metric value is low, which may signal a poor physical CPU cores
+ | utilization caused by:
+ |     - load imbalance
+ |     - threading runtime overhead
+ |     - contended synchronization
+ |     - thread/process underutilization
+ |     - incorrect affinity that utilizes logical cores instead of physical
+ |       cores
+ | Explore sub-metrics to estimate the efficiency of MPI and OpenMP parallelism
+ | or run the Locks and Waits analysis to identify parallel bottlenecks for
+ | other parallel runtimes.
+ |
+    Effective Logical Core Utilization: 1.8% (0.849 out of 48)
+     | The metric value is low, which may signal a poor logical CPU cores
+     | utilization. Consider improving physical core utilization as the first
+     | step and then look at opportunities to utilize logical cores, which in
+     | some cases can improve processor throughput and overall performance of
+     | multi-threaded applications.
+     |
+Memory Bound: 10.1% of Pipeline Slots
+    Cache Bound: 5.1% of Clockticks
+    DRAM Bound: 0.0% of Clockticks
+    NUMA: % of Remote Accesses: 0.0%
+Vectorization: 16.2% of Packed FP Operations
+ | A significant fraction of floating point arithmetic instructions are scalar.
+ | This indicates that the code was not fully vectorized. Use Intel Advisor to
+ | see possible reasons why the code was not vectorized.
+ |
+    Instruction Mix
+        SP FLOPs: 0.0% of uOps
+            Packed: 0.0% from SP FP
+                128-bit: 0.0% from SP FP
+                256-bit: 0.0% from SP FP
+                512-bit: 0.0% from SP FP
+            Scalar: 0.0% from SP FP
+        DP FLOPs: 63.8% of uOps
+            Packed: 16.2% from DP FP
+                128-bit: 0.0% from DP FP
+                256-bit: 16.2% from DP FP
+                 | A significant fraction of floating point arithmetic vector
+                 | instructions executed with a partial vector load. You can try
+                 | to compile the code with the latest instruction set or use
+                 | Intel Advisor for vectorization help.
+                 |
+                512-bit: 0.0% from DP FP
+            Scalar: 83.8% from DP FP
+             | A significant fraction of floating point arithmetic instructions
+             | are scalar. This indicates that the code was not fully
+             | vectorized. Use Intel Advisor to see possible reasons why the
+             | code was not vectorized.
+             |
+        x87 FLOPs: 0.0% of uOps
+        Non-FP: 36.2% of uOps
+    FP Arith/Mem Rd Instr. Ratio: 1.779
+    FP Arith/Mem Wr Instr. Ratio: 6.789
+Collection and Platform Info
+    Application Command Line: ./ekf_mpi_prof "--data" "/shared/home/das1301/project-das1301/data/v101.bin" "--M" "256" "--seed" "42" "--runs" "2" "--warmup" "1" "--quiet" "--out" "results/vtune_r4_runs.csv" 
+    Operating System: 6.1.166-197.305.amzn2023.x86_64 
+    Computer Name: general-dy-general-cr-14
+    Result Size: 5.0 MB 
+    Collection start time: 19:32:33 06/05/2026 UTC
+    Collection stop time: 19:32:38 06/05/2026 UTC
+    Collector Type: Driverless Perf per-process sampling
+    CPU
+        Name: Intel(R) Xeon(R) Processor code named Cascadelake
+        Frequency: 3.000 GHz
+        Logical CPU Count: 48
+
+If you want to skip descriptions of detected performance issues in the report,
+enter: vtune -report summary -report-knob show-issues=false -r <my_result_dir>.
+Alternatively, you may view the report in the csv format: vtune -report
+<report_name> -format=csv.

@@ -1,0 +1,104 @@
+[run_jax] REPO_ROOT  = /shared/home/das1301/project-das1301
+[run_jax] SCRIPT_DIR = /shared/home/das1301/project-das1301/src/additional
+[run_jax] DATA_BIN   = /shared/home/das1301/project-das1301/data/v101.bin
+[run_jax] node       = gpu-dy-gpu-cr-5
+NVIDIA L4, 570.172.08, 23034 MiB
+NVIDIA L4, 570.172.08, 23034 MiB
+NVIDIA L4, 570.172.08, 23034 MiB
+NVIDIA L4, 570.172.08, 23034 MiB
+[run_jax] jax 0.4.30 on gpu
+=== throughput  M=64 ===
+2026-05-04 17:09:46.451284: W external/xla/xla/service/gpu/nvptx_compiler.cc:765] The NVIDIA driver's CUDA version is 12.8 which is older than the ptxas CUDA version (12.9.86). Because the driver is older than the ptxas version, XLA is disabling parallel compilation, which may slow down compilation. You should update your NVIDIA driver or use the NVIDIA-provided CUDA forward compatibility packages.
+[ekf_jax] backend = gpu  (devices: ['gpu'])
+[ekf_jax] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_jax] M=64  seed=42  runs=5 (warmup=1)  update_period=10
+[ekf_jax] JIT compile + first run = 5094.2 ms
+  run 0  wall=4125.46 ms  checksum=473.30863190077
+  run 1  wall=4130.04 ms  checksum=473.30863190077
+  run 2  wall=4123.46 ms  checksum=473.30863190077
+  run 3  wall=4129.66 ms  checksum=473.30863190077
+  run 4  wall=4131.11 ms  checksum=473.30863190077
+[ekf_jax] median wall = 4129.66 ms over 5 runs
+[ekf_jax] appended 5 rows to results/throughput.csv
+[ekf_jax] JIT compile cost (one-time) ≈ 5094 ms
+[ekf_jax] amortised wall after JIT     ≈ 4130 ms / run
+=== throughput  M=256 ===
+2026-05-04 17:10:15.802138: W external/xla/xla/service/gpu/nvptx_compiler.cc:765] The NVIDIA driver's CUDA version is 12.8 which is older than the ptxas CUDA version (12.9.86). Because the driver is older than the ptxas version, XLA is disabling parallel compilation, which may slow down compilation. You should update your NVIDIA driver or use the NVIDIA-provided CUDA forward compatibility packages.
+[ekf_jax] backend = gpu  (devices: ['gpu'])
+[ekf_jax] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_jax] M=256  seed=42  runs=5 (warmup=1)  update_period=10
+[ekf_jax] JIT compile + first run = 6646.8 ms
+  run 0  wall=5747.27 ms  checksum=1894.92532490654
+  run 1  wall=5750.97 ms  checksum=1894.92532490654
+  run 2  wall=5760.37 ms  checksum=1894.92532490654
+  run 3  wall=5753.23 ms  checksum=1894.92532490654
+  run 4  wall=5757.10 ms  checksum=1894.92532490654
+[ekf_jax] median wall = 5753.23 ms over 5 runs
+[ekf_jax] appended 5 rows to results/throughput.csv
+[ekf_jax] JIT compile cost (one-time) ≈ 6647 ms
+[ekf_jax] amortised wall after JIT     ≈ 5753 ms / run
+=== throughput  M=1024 ===
+2026-05-04 17:10:55.997630: W external/xla/xla/service/gpu/nvptx_compiler.cc:765] The NVIDIA driver's CUDA version is 12.8 which is older than the ptxas CUDA version (12.9.86). Because the driver is older than the ptxas version, XLA is disabling parallel compilation, which may slow down compilation. You should update your NVIDIA driver or use the NVIDIA-provided CUDA forward compatibility packages.
+[ekf_jax] backend = gpu  (devices: ['gpu'])
+[ekf_jax] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_jax] M=1024  seed=42  runs=5 (warmup=1)  update_period=10
+[ekf_jax] JIT compile + first run = 13651.0 ms
+  run 0  wall=12765.27 ms  checksum=7574.81257542253
+  run 1  wall=12760.08 ms  checksum=7574.81257542253
+  run 2  wall=12761.36 ms  checksum=7574.81257542253
+  run 3  wall=12779.66 ms  checksum=7574.81257542253
+  run 4  wall=12760.45 ms  checksum=7574.81257542253
+[ekf_jax] median wall = 12761.36 ms over 5 runs
+[ekf_jax] appended 5 rows to results/throughput.csv
+[ekf_jax] JIT compile cost (one-time) ≈ 13651 ms
+[ekf_jax] amortised wall after JIT     ≈ 12761 ms / run
+=== throughput  M=4096 ===
+2026-05-04 17:12:18.302426: W external/xla/xla/service/gpu/nvptx_compiler.cc:765] The NVIDIA driver's CUDA version is 12.8 which is older than the ptxas CUDA version (12.9.86). Because the driver is older than the ptxas version, XLA is disabling parallel compilation, which may slow down compilation. You should update your NVIDIA driver or use the NVIDIA-provided CUDA forward compatibility packages.
+[ekf_jax] backend = gpu  (devices: ['gpu'])
+[ekf_jax] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_jax] M=4096  seed=42  runs=5 (warmup=1)  update_period=10
+[ekf_jax] JIT compile + first run = 43445.3 ms
+  run 0  wall=42502.47 ms  checksum=30305.3453203804
+  run 1  wall=42501.28 ms  checksum=30305.3453203804
+  run 2  wall=42500.88 ms  checksum=30305.3453203804
+  run 3  wall=42500.72 ms  checksum=30305.3453203804
+  run 4  wall=42498.69 ms  checksum=30305.3453203804
+[ekf_jax] median wall = 42500.88 ms over 5 runs
+[ekf_jax] appended 5 rows to results/throughput.csv
+[ekf_jax] JIT compile cost (one-time) ≈ 43445 ms
+[ekf_jax] amortised wall after JIT     ≈ 42501 ms / run
+=== throughput  M=16384 ===
+2026-05-04 17:16:38.944313: W external/xla/xla/service/gpu/nvptx_compiler.cc:765] The NVIDIA driver's CUDA version is 12.8 which is older than the ptxas CUDA version (12.9.86). Because the driver is older than the ptxas version, XLA is disabling parallel compilation, which may slow down compilation. You should update your NVIDIA driver or use the NVIDIA-provided CUDA forward compatibility packages.
+[ekf_jax] backend = gpu  (devices: ['gpu'])
+[ekf_jax] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_jax] M=16384  seed=42  runs=5 (warmup=1)  update_period=10
+[ekf_jax] JIT compile + first run = 164778.6 ms
+  run 0  wall=163637.40 ms  checksum=121212.333816183
+  run 1  wall=163697.25 ms  checksum=121212.333816183
+  run 2  wall=163649.72 ms  checksum=121212.333816183
+  run 3  wall=163698.02 ms  checksum=121212.333816183
+  run 4  wall=163651.01 ms  checksum=121212.333816183
+[ekf_jax] median wall = 163651.01 ms over 5 runs
+[ekf_jax] appended 5 rows to results/throughput.csv
+[ekf_jax] JIT compile cost (one-time) ≈ 164779 ms
+[ekf_jax] amortised wall after JIT     ≈ 163651 ms / run
+=== throughput  M=65536 ===
+2026-05-04 17:33:07.026756: W external/xla/xla/service/gpu/nvptx_compiler.cc:765] The NVIDIA driver's CUDA version is 12.8 which is older than the ptxas CUDA version (12.9.86). Because the driver is older than the ptxas version, XLA is disabling parallel compilation, which may slow down compilation. You should update your NVIDIA driver or use the NVIDIA-provided CUDA forward compatibility packages.
+2026-05-04 17:33:07.996314: W external/xla/xla/service/hlo_rematerialization.cc:3005] Can't reduce memory use below 7.71GiB (8282061209 bytes) by rematerialization; only reduced to 16.83GiB (18069323776 bytes), down from 16.83GiB (18069323776 bytes) originally
+2026-05-04 17:33:09.475142: W external/xla/xla/service/hlo_rematerialization.cc:3005] Can't reduce memory use below 7.71GiB (8275129253 bytes) by rematerialization; only reduced to 8.58GiB (9218228548 bytes), down from 8.59GiB (9221374620 bytes) originally
+2026-05-04 17:33:20.082996: W external/xla/xla/tsl/framework/bfc_allocator.cc:482] Allocator (GPU_0_bfc) ran out of memory trying to allocate 8.57GiB (rounded to 9204405248)requested by op 
+2026-05-04 17:33:20.083153: W external/xla/xla/tsl/framework/bfc_allocator.cc:494] ***************************************************_________________________________________________
+E0504 17:33:20.083197   43039 pjrt_stream_executor_client.cc:2985] Execution of replica 0 failed: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 9204405216 bytes.
+[ekf_jax] backend = gpu  (devices: ['gpu'])
+[ekf_jax] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_jax] M=65536  seed=42  runs=5 (warmup=1)  update_period=10
+jax.errors.SimplifiedTraceback: For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/shared/home/das1301/project-das1301/src/additional/ekf_jax.py", line 349, in <module>
+    main()
+  File "/shared/home/das1301/project-das1301/src/additional/ekf_jax.py", line 269, in main
+    final_x = run_batch_jit(
+jaxlib.xla_extension.XlaRuntimeError: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 9204405216 bytes.

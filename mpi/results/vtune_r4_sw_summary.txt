@@ -1,0 +1,57 @@
+Elapsed Time: 27.364s
+    CPU Time: 92.999s
+        Effective Time: 92.999s
+        Spin Time: 0s
+        Overhead Time: 0s
+    Total Thread Count: 20
+    Paused Time: 0s
+
+Top Hotspots
+Function          Module        CPU Time  % of CPU Time(%)
+----------------  ------------  --------  ----------------
+ekf::matmul_AB_T  ekf_mpi_prof   38.630s             41.5%
+sincos            libm.so.6      14.540s             15.6%
+ekf::matmul       ekf_mpi_prof   14.130s             15.2%
+ekf::inv6         ekf_mpi_prof    5.111s              5.5%
+ekf::predict      ekf_mpi_prof    4.778s              5.1%
+[Others]          N/A            15.810s             17.0%
+Effective Physical Core Utilization: 14.6% (3.510 out of 24)
+ | The metric value is low, which may signal a poor physical CPU cores
+ | utilization caused by:
+ |     - load imbalance
+ |     - threading runtime overhead
+ |     - contended synchronization
+ |     - thread/process underutilization
+ |     - incorrect affinity that utilizes logical cores instead of physical
+ |       cores
+ | Explore sub-metrics to estimate the efficiency of MPI and OpenMP parallelism
+ | or run the Locks and Waits analysis to identify parallel bottlenecks for
+ | other parallel runtimes.
+ |
+    Effective Logical Core Utilization: 7.3% (3.526 out of 48)
+     | The metric value is low, which may signal a poor logical CPU cores
+     | utilization. Consider improving physical core utilization as the first
+     | step and then look at opportunities to utilize logical cores, which in
+     | some cases can improve processor throughput and overall performance of
+     | multi-threaded applications.
+     |
+Collection and Platform Info
+    Application Command Line: /opt/amazon/openmpi/bin/mpirun "-n" "4" "--bind-to" "none" "--oversubscribe" "./ekf_mpi_prof" "--data" "/shared/home/das1301/project-das1301/data/v101.bin" "--M" "2048" "--seed" "42" "--runs" "3" "--warmup" "1" "--quiet" "--out" "results/vtune_r4_sw_runs.csv" 
+    Operating System: 6.1.166-197.305.amzn2023.x86_64 
+    Computer Name: general-dy-general-cr-2
+    Result Size: 7.9 MB 
+    Collection start time: 13:21:49 07/05/2026 UTC
+    Collection stop time: 13:22:17 07/05/2026 UTC
+    Collector Type: Driverless Perf per-process counting,User-mode sampling and tracing
+    CPU
+        Name: Intel(R) Xeon(R) Processor code named Cascadelake
+        Frequency: 3.000 GHz
+        Logical CPU Count: 48
+        Cache Allocation Technology
+            Level 2 capability: not detected
+            Level 3 capability: not detected
+
+If you want to skip descriptions of detected performance issues in the report,
+enter: vtune -report summary -report-knob show-issues=false -r <my_result_dir>.
+Alternatively, you may view the report in the csv format: vtune -report
+<report_name> -format=csv.

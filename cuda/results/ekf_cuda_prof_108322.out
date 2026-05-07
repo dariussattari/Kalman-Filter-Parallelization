@@ -1,0 +1,28 @@
+[run_cuda_prof] REPO_ROOT  = /shared/home/das1301/project-das1301
+[run_cuda_prof] node       = gpu-dy-gpu-cr-5
+NVIDIA L4, 570.172.08, 23034 MiB
+NVIDIA L4, 570.172.08, 23034 MiB
+NVIDIA L4, 570.172.08, 23034 MiB
+NVIDIA L4, 570.172.08, 23034 MiB
+=== build with -Xptxas=-v ===
+rm -f ekf_cuda ekf_cuda_prof
+nvcc -std=c++17 -O3 --use_fast_math -arch=sm_80 -I../common -Xcompiler -Wall,-Wextra --expt-relaxed-constexpr -lineinfo -Xptxas=-v -ccbin /usr/bin/g++ -o ekf_cuda_prof ekf_cuda.cu -lcurand
+ptxas info    : 218320 bytes gmem, 72 bytes cmem[3], 80 bytes cmem[4]
+ptxas info    : Compiling entry function '_Z10ekf_kernelPKdS0_S0_S0_S0_iiyPdS1_' for 'sm_80'
+ptxas info    : Function properties for _Z10ekf_kernelPKdS0_S0_S0_S0_iiyPdS1_
+    3472 bytes stack frame, 1140 bytes spill stores, 1308 bytes spill loads
+ptxas info    : Used 255 registers, used 0 barriers, 3472 bytes cumulative stack size, 424 bytes cmem[0], 248 bytes cmem[2]
+ptxas info    : Compile time = 239.286 ms
+ptxas info    : Function properties for __internal_trig_reduction_slowpathd
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+
+=== ptxas log ===
+ptxas info    : 218320 bytes gmem, 72 bytes cmem[3], 80 bytes cmem[4]
+ptxas info    : Compiling entry function '_Z10ekf_kernelPKdS0_S0_S0_S0_iiyPdS1_' for 'sm_80'
+ptxas info    : Function properties for _Z10ekf_kernelPKdS0_S0_S0_S0_iiyPdS1_
+ptxas info    : Used 255 registers, used 0 barriers, 3472 bytes cumulative stack size, 424 bytes cmem[0], 248 bytes cmem[2]
+ptxas info    : Compile time = 239.286 ms
+ptxas info    : Function properties for __internal_trig_reduction_slowpathd
+
+=== occupancy table (derived from ptxas + L4 sm_89 limits) ===
+/var/spool/slurmd/job108322/slurm_script: line 66: 305449 Illegal instruction     (core dumped) python3 occupancy_table.py --ptxas-log results/ptxas.log --output results/occupancy_table.md --arch sm_89

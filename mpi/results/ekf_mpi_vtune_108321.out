@@ -1,0 +1,18 @@
+[run_mpi_vtune] REPO_ROOT  = /shared/home/das1301/project-das1301
+[run_mpi_vtune] node       = general-dy-general-cr-14
+[run_mpi_vtune] vtune = Intel(R) VTune(TM) Profiler 2024.3.0 (build 628755) Command Line Tool
+=== build (with -g for symbol attribution) ===
+rm -f ekf_mpi ekf_mpi_debug ekf_mpi_prof
+/shared/courseSharedFolders/161588outer/161588/spack/var/spack/environments/cs2050-cpu/.spack-env/view/bin/mpic++ -std=c++17 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -g -fno-omit-frame-pointer -I../common -o ekf_mpi_prof ekf_mpi.cpp
+=== vtune hpc-performance  ranks=4  tag=r4 ===
+vtune: Analyzing data in the node-wide mode. The hostname (general-dy-general-cr-14) will be added to the result path/name.
+vtune: Warning: To analyze modules at the kernel level in this configuration, load the Intel sampling driver and set an unlimited (0) value for the Stack size option (if you require stack collection). Alternatively, enable access to kernel-mode monitoring by setting the /proc/sys/kernel/perf_event_paranoid value to 1 or lower.
+vtune: Warning: To profile kernel modules during the session, make sure they are available in the /lib/modules/kernel_version/ location.
+vtune: Warning: Consider reducing possible collection overhead by setting the /proc/sys/kernel/perf_event_paranoid value to 0 (or less).
+vtune: Warning: Precise events are not available on this platform in the driverless mode and will be collected as non-precise. Some metrics may be less accurately attributed to the program code. Please consider loading VTune Profiler driver. Updating Linux kernel to newer version may also help.
+vtune: Collection started.
+vtune: Collection stopped.
+vtune: Using result path `/shared/home/das1301/project-das1301/src/mpi/results/vtune_r4.general-dy-general-cr-14'
+vtune: Executing actions  0 %                                                  vtune: Executing actions 100 %                                                 vtune: Executing actions 100 % done                                            
+vtune: Error: Result path `/shared/home/das1301/project-das1301/src/mpi/results/vtune_r4' does not exist.
+vtune: Error: Result path `/shared/home/das1301/project-das1301/src/mpi/results/vtune_r4' does not exist.

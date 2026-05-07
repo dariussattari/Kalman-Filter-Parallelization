@@ -1,0 +1,171 @@
+[run_cuda] REPO_ROOT  = /shared/home/das1301/project-das1301
+[run_cuda] SCRIPT_DIR = /shared/home/das1301/project-das1301/src/cuda
+[run_cuda] DATA_BIN   = /shared/home/das1301/project-das1301/data/v101.bin
+[run_cuda] node       = gpu-dy-gpu-cr-5
+NVIDIA L4, 570.172.08, 23034 MiB
+NVIDIA L4, 570.172.08, 23034 MiB
+NVIDIA L4, 570.172.08, 23034 MiB
+NVIDIA L4, 570.172.08, 23034 MiB
+=== build ===
+rm -f ekf_cuda
+nvcc -std=c++17 -O3 --use_fast_math -arch=sm_89 -I../common -Xcompiler -Wall,-Wextra --expt-relaxed-constexpr -lineinfo -o ekf_cuda ekf_cuda.cu -lcurand
+=== throughput  M=64  block=128 ===
+[ekf_cuda] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_cuda] device     : NVIDIA L4  (CC 8.9, 58 SMs)
+[ekf_cuda] M=64  seed=42  runs=5 (warmup=1)  update_period=10  block=128
+[ekf_cuda] H2D      : 0.43 ms
+  run 0  wall=1160.95 ms  checksum=476.129333431299
+  run 1  wall=1158.79 ms  checksum=476.129333431299
+  run 2  wall=1154.00 ms  checksum=476.129333431299
+  run 3  wall=1152.99 ms  checksum=476.129333431299
+  run 4  wall=1161.00 ms  checksum=476.129333431299
+[ekf_cuda] median wall = 1158.79 ms over 5 runs
+[ekf_cuda] appended 5 rows to results/throughput.csv
+=== throughput  M=256  block=128 ===
+[ekf_cuda] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_cuda] device     : NVIDIA L4  (CC 8.9, 58 SMs)
+[ekf_cuda] M=256  seed=42  runs=5 (warmup=1)  update_period=10  block=128
+[ekf_cuda] H2D      : 0.41 ms
+  run 0  wall=1977.42 ms  checksum=1905.20205245405
+  run 1  wall=1977.66 ms  checksum=1905.20205245405
+  run 2  wall=1976.15 ms  checksum=1905.20205245405
+  run 3  wall=1980.06 ms  checksum=1905.20205245405
+  run 4  wall=1975.12 ms  checksum=1905.20205245405
+[ekf_cuda] median wall = 1977.42 ms over 5 runs
+[ekf_cuda] appended 5 rows to results/throughput.csv
+=== throughput  M=1024  block=128 ===
+[ekf_cuda] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_cuda] device     : NVIDIA L4  (CC 8.9, 58 SMs)
+[ekf_cuda] M=1024  seed=42  runs=5 (warmup=1)  update_period=10  block=128
+[ekf_cuda] H2D      : 0.51 ms
+  run 0  wall=1978.38 ms  checksum=7624.29223018139
+  run 1  wall=1976.25 ms  checksum=7624.29223018139
+  run 2  wall=1977.83 ms  checksum=7624.29223018139
+  run 3  wall=1977.65 ms  checksum=7624.29223018139
+  run 4  wall=1978.07 ms  checksum=7624.29223018139
+[ekf_cuda] median wall = 1977.83 ms over 5 runs
+[ekf_cuda] appended 5 rows to results/throughput.csv
+=== throughput  M=4096  block=128 ===
+[ekf_cuda] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_cuda] device     : NVIDIA L4  (CC 8.9, 58 SMs)
+[ekf_cuda] M=4096  seed=42  runs=5 (warmup=1)  update_period=10  block=128
+[ekf_cuda] H2D      : 0.49 ms
+  run 0  wall=1986.17 ms  checksum=30488.5814954793
+  run 1  wall=1984.37 ms  checksum=30488.5814954793
+  run 2  wall=1984.35 ms  checksum=30488.5814954793
+  run 3  wall=1982.04 ms  checksum=30488.5814954793
+  run 4  wall=1984.30 ms  checksum=30488.5814954793
+[ekf_cuda] median wall = 1984.35 ms over 5 runs
+[ekf_cuda] appended 5 rows to results/throughput.csv
+=== throughput  M=16384  block=128 ===
+[ekf_cuda] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_cuda] device     : NVIDIA L4  (CC 8.9, 58 SMs)
+[ekf_cuda] M=16384  seed=42  runs=5 (warmup=1)  update_period=10  block=128
+[ekf_cuda] H2D      : 0.53 ms
+  run 0  wall=6327.97 ms  checksum=121967.511502668
+  run 1  wall=6338.37 ms  checksum=121967.511502668
+  run 2  wall=6343.43 ms  checksum=121967.511502668
+  run 3  wall=6349.36 ms  checksum=121967.511502668
+  run 4  wall=6360.45 ms  checksum=121967.511502668
+[ekf_cuda] median wall = 6343.43 ms over 5 runs
+[ekf_cuda] appended 5 rows to results/throughput.csv
+=== throughput  M=65536  block=128 ===
+[ekf_cuda] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_cuda] device     : NVIDIA L4  (CC 8.9, 58 SMs)
+[ekf_cuda] M=65536  seed=42  runs=5 (warmup=1)  update_period=10  block=128
+[ekf_cuda] H2D      : 0.50 ms
+  run 0  wall=19930.75 ms  checksum=487823.799210666
+  run 1  wall=20107.59 ms  checksum=487823.799210666
+  run 2  wall=20301.59 ms  checksum=487823.799210666
+  run 3  wall=20499.21 ms  checksum=487823.799210666
+  run 4  wall=20701.20 ms  checksum=487823.799210666
+[ekf_cuda] median wall = 20301.59 ms over 5 runs
+[ekf_cuda] appended 5 rows to results/throughput.csv
+=== blocksize  M=4096  block=32 ===
+[ekf_cuda] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_cuda] device     : NVIDIA L4  (CC 8.9, 58 SMs)
+[ekf_cuda] M=4096  seed=42  runs=5 (warmup=1)  update_period=10  block=32
+[ekf_cuda] H2D      : 0.49 ms
+  run 0  wall=1532.95 ms  checksum=30488.5814954793
+  run 1  wall=1535.14 ms  checksum=30488.5814954793
+  run 2  wall=1537.18 ms  checksum=30488.5814954793
+  run 3  wall=1537.21 ms  checksum=30488.5814954793
+  run 4  wall=1533.42 ms  checksum=30488.5814954793
+[ekf_cuda] median wall = 1535.14 ms over 5 runs
+[ekf_cuda] appended 5 rows to results/blocksize.csv
+=== blocksize  M=4096  block=64 ===
+[ekf_cuda] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_cuda] device     : NVIDIA L4  (CC 8.9, 58 SMs)
+[ekf_cuda] M=4096  seed=42  runs=5 (warmup=1)  update_period=10  block=64
+[ekf_cuda] H2D      : 0.42 ms
+  run 0  wall=1978.89 ms  checksum=30488.5814954793
+  run 1  wall=1977.64 ms  checksum=30488.5814954793
+  run 2  wall=1977.07 ms  checksum=30488.5814954793
+  run 3  wall=1983.08 ms  checksum=30488.5814954793
+  run 4  wall=1980.84 ms  checksum=30488.5814954793
+[ekf_cuda] median wall = 1978.89 ms over 5 runs
+[ekf_cuda] appended 5 rows to results/blocksize.csv
+=== blocksize  M=4096  block=128 ===
+[ekf_cuda] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_cuda] device     : NVIDIA L4  (CC 8.9, 58 SMs)
+[ekf_cuda] M=4096  seed=42  runs=5 (warmup=1)  update_period=10  block=128
+[ekf_cuda] H2D      : 0.57 ms
+  run 0  wall=1984.14 ms  checksum=30488.5814954793
+  run 1  wall=1984.29 ms  checksum=30488.5814954793
+  run 2  wall=1984.31 ms  checksum=30488.5814954793
+  run 3  wall=1984.20 ms  checksum=30488.5814954793
+  run 4  wall=1984.20 ms  checksum=30488.5814954793
+[ekf_cuda] median wall = 1984.20 ms over 5 runs
+[ekf_cuda] appended 5 rows to results/blocksize.csv
+=== blocksize  M=4096  block=256 ===
+[ekf_cuda] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_cuda] device     : NVIDIA L4  (CC 8.9, 58 SMs)
+[ekf_cuda] M=4096  seed=42  runs=5 (warmup=1)  update_period=10  block=256
+[ekf_cuda] H2D      : 0.43 ms
+  run 0  wall=3948.52 ms  checksum=30488.5814954793
+  run 1  wall=3948.56 ms  checksum=30488.5814954793
+  run 2  wall=3948.47 ms  checksum=30488.5814954793
+  run 3  wall=3948.55 ms  checksum=30488.5814954793
+  run 4  wall=3948.52 ms  checksum=30488.5814954793
+[ekf_cuda] median wall = 3948.52 ms over 5 runs
+[ekf_cuda] appended 5 rows to results/blocksize.csv
+[ekf_cuda] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_cuda] device     : NVIDIA L4  (CC 8.9, 58 SMs)
+[ekf_cuda] M=128  seed=42  runs=1 (warmup=1)  update_period=10  block=128
+[ekf_cuda] H2D      : 0.42 ms
+  run 0  wall=1978.83 ms  checksum=952.528122259025
+[ekf_cuda] median wall = 1978.83 ms over 1 runs
+[ekf_cuda] wrote results/golden.csv (128 rows)
+[ekf_cuda] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_cuda] device     : NVIDIA L4  (CC 8.9, 58 SMs)
+[ekf_cuda] M=128  seed=42  runs=1 (warmup=1)  update_period=10  block=128
+[ekf_cuda] H2D      : 0.42 ms
+  run 0  wall=1977.01 ms  checksum=952.528122259025
+[ekf_cuda] median wall = 1977.01 ms over 1 runs
+[ekf_cuda] wrote results/golden_repeat.csv (128 rows)
+=== within-CUDA determinism (must be byte-identical) ===
+PASS: CUDA is deterministic across runs (same seed → same checksum)
+[ekf_cuda] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_cuda] device     : NVIDIA L4  (CC 8.9, 58 SMs)
+[ekf_cuda] M=1  seed=42  runs=1 (warmup=0)  update_period=10  block=128
+[ekf_cuda] H2D      : 0.41 ms
+  run 0  wall=887.26 ms  checksum=7.55905546695902
+[ekf_cuda] median wall = 887.26 ms over 1 runs
+[ekf_cuda] wrote results/trajectory.csv (28712 rows)
+=== plot scaling ===
+wrote results/throughput_scaling.png
+wrote results/blocksize_sweep.png
+=== plot trajectory comparison (serial vs openmp vs mpi vs cuda) ===
+wrote results/trajectory_compare.png
+wrote results/trajectory_residual.png
+=== done ===
+total 3.9M
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 1.1K May  4 16:21 blocksize.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  54K May  4 16:21 blocksize_sweep.png
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 8.6K May  4 16:21 ekf_cuda_105111.out
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 2.8K May  4 16:21 golden.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 1.5K May  4 16:20 throughput.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  71K May  4 16:21 throughput_scaling.png
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 3.4M May  4 16:21 trajectory.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 331K May  4 16:21 trajectory_compare.png
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  64K May  4 16:21 trajectory_residual.png

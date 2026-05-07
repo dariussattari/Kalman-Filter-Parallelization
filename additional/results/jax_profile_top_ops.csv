@@ -1,0 +1,16 @@
+rank,self_time_ms,op
+1,315339.926,PjitFunction(run_one_final)
+2,86566.345,cuStreamSynchronize
+3,37959.510,void gemmSN_TN_kernel<double  128  16  2  4  10  11  false  cublasGemvTensorStridedBatched<double const>  cublasGemvTensorStridedBatched<double const>  cublasGemvTensorStridedBatched<double> >(cublasGemmSmallNParams<cublasGemvTensorStridedBatched<double const>  cublasGemvTensorStridedBatched<double const>  cublasGemvTensorStridedBatched<double>  double>)
+4,15839.046,void gemmSN_NN_kernel<double  128  2  4  8  5  4  false  cublasGemvTensorStridedBatched<double const>  cublasGemvTensorStridedBatched<double const>  cublasGemvTensorStridedBatched<double> >(cublasGemmSmallNParams<cublasGemvTensorStridedBatched<double const>  cublasGemvTensorStridedBatched<double const>  cublasGemvTensorStridedBatched<double>  double>)
+5,11639.197,void cutlass::Kernel2<cutlass_80_tensorop_d884gemm_64x32_16x4_nn_align1>(cutlass_80_tensorop_d884gemm_64x32_16x4_nn_align1::Params)
+6,6206.154,void cutlass::Kernel2<cutlass_80_tensorop_d884gemm_32x64_16x4_nn_align1>(cutlass_80_tensorop_d884gemm_32x64_16x4_nn_align1::Params)
+7,4183.289,void cutlass::Kernel2<cutlass_80_tensorop_d884gemm_32x64_16x4_tn_align1>(cutlass_80_tensorop_d884gemm_32x64_16x4_tn_align1::Params)
+8,1542.209,void trsm_batch_left_upper_kernel_small<double  8  8  64>(cublasTrsmBatchParams<double>  double const* const*  double* const*  double const*  double)
+9,1284.162,loop_select_fusion_5
+10,1253.622,input_concatenate_fusion_1
+11,1188.417,MemcpyD2D
+12,1005.634,void getrf_semiwarp<double  double  3  1  true>(int  double* const*  int  int*  int*  int)
+13,785.659,void trsm_batch_left_lower_kernel_small<double  8  8  64>(cublasTrsmBatchParams<double>  double const* const*  double* const*  double const*  double)
+14,753.137,loop_subtract_fusion_1
+15,710.789,loop_add_fusion_3

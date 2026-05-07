@@ -1,0 +1,41 @@
+Hierarchy Level,Metric Name,Metric Value
+0,Elapsed Time,1.341590
+1,CPU Time,1.590000
+2,Effective Time,1.440253
+2,Spin Time,0.149747
+3,Imbalance or Serial Spinning,0.149747
+3,Lock Contention,0.0
+3,Other,0.0
+2,Overhead Time,0.0
+3,Creation,0.0
+3,Scheduling,0.0
+3,Reduction,0.0
+3,Atomics,0.0
+3,Other,0.0
+1,Total Thread Count,16
+1,Paused Time,0.0
+0,Top Hotspots,
+0,Function,Module,CPU Time,% of CPU Time(%)
+0,ekf::matmul_AB_T,ekf_omp_prof,0.650071,40.9
+0,ekf::matmul,ekf_omp_prof,0.210006,13.2
+0,sincos,libm.so.6,0.209874,13.2
+0,gomp_simple_barrier_wait,libgomp.so.1,0.149747,9.4
+0,ekf::mat_add_n,ekf_omp_prof,0.120167,7.6
+0,[Others],N/A,0.250135,15.7
+0,Effective Physical Core Utilization,8.0% (1.922 out of 24)
+1,Effective Logical Core Utilization,3.9% (1.853 out of 48)
+0,Collection and Platform Info,
+1,Application Command Line,./ekf_omp_prof "--data" "/shared/home/das1301/project-das1301/data/v101.bin" "--M" "64" "--seed" "42" "--runs" "1" "--warmup" "1" "--quiet" "--out" "results/vtune_t16_runs.csv" 
+1,Operating System,6.1.166-197.305.amzn2023.x86_64 
+1,Computer Name,general-dy-general-cr-1
+1,Result Size,3827827
+1,Collection start time,03:48:53 07/05/2026 UTC
+1,Collection stop time,03:48:54 07/05/2026 UTC
+1,Collector Type,"Driverless Perf per-process counting,User-mode sampling and tracing"
+1,CPU,
+2,Name,Intel(R) Xeon(R) Processor code named Cascadelake
+2,Frequency,2999998190
+2,Logical CPU Count,48
+2,Cache Allocation Technology,
+3,Level 2 capability,not detected
+3,Level 3 capability,not detected

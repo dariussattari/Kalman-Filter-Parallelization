@@ -1,0 +1,188 @@
+[run_mpi] REPO_ROOT  = /shared/home/das1301/project-das1301
+[run_mpi] SCRIPT_DIR = /shared/home/das1301/project-das1301/src/mpi
+[run_mpi] DATA_BIN   = /shared/home/das1301/project-das1301/data/v101.bin
+[run_mpi] alloc      = 4 nodes, 64 tasks
+[run_mpi] nodes      = general-dy-general-cr-[7-10]
+=== build ===
+rm -f ekf_mpi ekf_mpi_debug
+/shared/courseSharedFolders/161588outer/161588/spack/var/spack/environments/cs2050-cpu/.spack-env/view/bin/mpic++ -std=c++17 -Wall -Wextra -Wpedantic -O3 -march=native -ffast-math -I../common -o ekf_mpi ekf_mpi.cpp
+=== strong  M=4096  ranks=1 ===
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+[ekf_mpi] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_mpi] M=4096  seed=42  runs=5 (warmup=1)  update_period=10  ranks=1
+  run 0  wall=45482.04 ms  checksum=30488.8157676748
+  run 1  wall=45486.67 ms  checksum=30488.8157676748
+  run 2  wall=45483.04 ms  checksum=30488.8157676748
+  run 3  wall=45485.26 ms  checksum=30488.8157676748
+  run 4  wall=45486.00 ms  checksum=30488.8157676748
+[ekf_mpi] median wall = 45485.26 ms over 5 runs
+[ekf_mpi] appended 5 rows to results/strong.csv
+=== strong  M=4096  ranks=2 ===
+srun: warning: can't run 2 processes on 4 nodes, setting nnodes to 2
+[ekf_mpi] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_mpi] M=4096  seed=42  runs=5 (warmup=1)  update_period=10  ranks=2
+  run 0  wall=22797.81 ms  checksum=30488.8157676748
+  run 1  wall=22798.64 ms  checksum=30488.8157676748
+  run 2  wall=22798.15 ms  checksum=30488.8157676748
+  run 3  wall=22799.22 ms  checksum=30488.8157676748
+  run 4  wall=22798.46 ms  checksum=30488.8157676748
+[ekf_mpi] median wall = 22798.46 ms over 5 runs
+[ekf_mpi] appended 5 rows to results/strong.csv
+=== strong  M=4096  ranks=4 ===
+[ekf_mpi] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_mpi] M=4096  seed=42  runs=5 (warmup=1)  update_period=10  ranks=4
+  run 0  wall=11493.21 ms  checksum=30488.8157676748
+  run 1  wall=11491.65 ms  checksum=30488.8157676748
+  run 2  wall=11509.65 ms  checksum=30488.8157676748
+  run 3  wall=11491.69 ms  checksum=30488.8157676748
+  run 4  wall=11491.65 ms  checksum=30488.8157676748
+[ekf_mpi] median wall = 11491.69 ms over 5 runs
+[ekf_mpi] appended 5 rows to results/strong.csv
+=== strong  M=4096  ranks=8 ===
+[ekf_mpi] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_mpi] M=4096  seed=42  runs=5 (warmup=1)  update_period=10  ranks=8
+  run 0  wall=10074.30 ms  checksum=30488.8157676748
+  run 1  wall=10080.83 ms  checksum=30488.8157676748
+  run 2  wall=10073.00 ms  checksum=30488.8157676748
+  run 3  wall=10073.43 ms  checksum=30488.8157676748
+  run 4  wall=10063.13 ms  checksum=30488.8157676748
+[ekf_mpi] median wall = 10073.43 ms over 5 runs
+[ekf_mpi] appended 5 rows to results/strong.csv
+=== strong  M=4096  ranks=16 ===
+[ekf_mpi] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_mpi] M=4096  seed=42  runs=5 (warmup=1)  update_period=10  ranks=16
+  run 0  wall=5045.20 ms  checksum=30488.8157676748
+  run 1  wall=5045.52 ms  checksum=30488.8157676748
+  run 2  wall=5046.82 ms  checksum=30488.8157676748
+  run 3  wall=5049.63 ms  checksum=30488.8157676748
+  run 4  wall=5061.26 ms  checksum=30488.8157676748
+[ekf_mpi] median wall = 5046.82 ms over 5 runs
+[ekf_mpi] appended 5 rows to results/strong.csv
+=== strong  M=4096  ranks=32 ===
+[ekf_mpi] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_mpi] M=4096  seed=42  runs=5 (warmup=1)  update_period=10  ranks=32
+  run 0  wall=2537.34 ms  checksum=30488.8157676748
+  run 1  wall=2536.88 ms  checksum=30488.8157676748
+  run 2  wall=2536.72 ms  checksum=30488.8157676748
+  run 3  wall=2537.41 ms  checksum=30488.8157676748
+  run 4  wall=2532.80 ms  checksum=30488.8157676748
+[ekf_mpi] median wall = 2536.88 ms over 5 runs
+[ekf_mpi] appended 5 rows to results/strong.csv
+=== strong  M=4096  ranks=64 ===
+[ekf_mpi] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_mpi] M=4096  seed=42  runs=5 (warmup=1)  update_period=10  ranks=64
+  run 0  wall=1268.83 ms  checksum=30488.8157676748
+  run 1  wall=1268.81 ms  checksum=30488.8157676748
+  run 2  wall=1268.79 ms  checksum=30488.8157676748
+  run 3  wall=1268.93 ms  checksum=30488.8157676748
+  run 4  wall=1263.29 ms  checksum=30488.8157676748
+[ekf_mpi] median wall = 1268.81 ms over 5 runs
+[ekf_mpi] appended 5 rows to results/strong.csv
+=== weak    M=64  ranks=1 ===
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+[ekf_mpi] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_mpi] M=64  seed=42  runs=5 (warmup=1)  update_period=10  ranks=1
+  run 0  wall=724.89 ms  checksum=477.471008562066
+  run 1  wall=724.92 ms  checksum=477.471008562066
+  run 2  wall=724.82 ms  checksum=477.471008562066
+  run 3  wall=724.80 ms  checksum=477.471008562066
+  run 4  wall=724.81 ms  checksum=477.471008562066
+[ekf_mpi] median wall = 724.82 ms over 5 runs
+[ekf_mpi] appended 5 rows to results/weak.csv
+=== weak    M=128  ranks=2 ===
+srun: warning: can't run 2 processes on 4 nodes, setting nnodes to 2
+[ekf_mpi] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_mpi] M=128  seed=42  runs=5 (warmup=1)  update_period=10  ranks=2
+  run 0  wall=712.38 ms  checksum=953.750084457513
+  run 1  wall=712.37 ms  checksum=953.750084457513
+  run 2  wall=712.47 ms  checksum=953.750084457513
+  run 3  wall=712.79 ms  checksum=953.750084457513
+  run 4  wall=712.45 ms  checksum=953.750084457513
+[ekf_mpi] median wall = 712.45 ms over 5 runs
+[ekf_mpi] appended 5 rows to results/weak.csv
+=== weak    M=256  ranks=4 ===
+[ekf_mpi] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_mpi] M=256  seed=42  runs=5 (warmup=1)  update_period=10  ranks=4
+  run 0  wall=725.08 ms  checksum=1906.96847845884
+  run 1  wall=724.93 ms  checksum=1906.96847845884
+  run 2  wall=725.03 ms  checksum=1906.96847845884
+  run 3  wall=725.06 ms  checksum=1906.96847845884
+  run 4  wall=725.08 ms  checksum=1906.96847845884
+[ekf_mpi] median wall = 725.06 ms over 5 runs
+[ekf_mpi] appended 5 rows to results/weak.csv
+=== weak    M=512  ranks=8 ===
+[ekf_mpi] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_mpi] M=512  seed=42  runs=5 (warmup=1)  update_period=10  ranks=8
+  run 0  wall=1263.04 ms  checksum=3811.42442074841
+  run 1  wall=1261.81 ms  checksum=3811.42442074841
+  run 2  wall=1261.51 ms  checksum=3811.42442074841
+  run 3  wall=1261.66 ms  checksum=3811.42442074841
+  run 4  wall=1261.21 ms  checksum=3811.42442074841
+[ekf_mpi] median wall = 1261.66 ms over 5 runs
+[ekf_mpi] appended 5 rows to results/weak.csv
+=== weak    M=1024  ranks=16 ===
+[ekf_mpi] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_mpi] M=1024  seed=42  runs=5 (warmup=1)  update_period=10  ranks=16
+  run 0  wall=1264.26 ms  checksum=7623.96418582435
+  run 1  wall=1264.14 ms  checksum=7623.96418582435
+  run 2  wall=1263.76 ms  checksum=7623.96418582435
+  run 3  wall=1264.11 ms  checksum=7623.96418582435
+  run 4  wall=1264.92 ms  checksum=7623.96418582435
+[ekf_mpi] median wall = 1264.14 ms over 5 runs
+[ekf_mpi] appended 5 rows to results/weak.csv
+=== weak    M=2048  ranks=32 ===
+[ekf_mpi] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_mpi] M=2048  seed=42  runs=5 (warmup=1)  update_period=10  ranks=32
+  run 0  wall=1276.92 ms  checksum=15244.8434824185
+  run 1  wall=1269.47 ms  checksum=15244.8434824185
+  run 2  wall=1266.36 ms  checksum=15244.8434824185
+  run 3  wall=1267.20 ms  checksum=15244.8434824185
+  run 4  wall=1272.74 ms  checksum=15244.8434824185
+[ekf_mpi] median wall = 1269.47 ms over 5 runs
+[ekf_mpi] appended 5 rows to results/weak.csv
+=== weak    M=4096  ranks=64 ===
+[ekf_mpi] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_mpi] M=4096  seed=42  runs=5 (warmup=1)  update_period=10  ranks=64
+  run 0  wall=1273.36 ms  checksum=30488.8157676748
+  run 1  wall=1273.82 ms  checksum=30488.8157676748
+  run 2  wall=1278.93 ms  checksum=30488.8157676748
+  run 3  wall=1273.55 ms  checksum=30488.8157676748
+  run 4  wall=1274.47 ms  checksum=30488.8157676748
+[ekf_mpi] median wall = 1273.82 ms over 5 runs
+[ekf_mpi] appended 5 rows to results/weak.csv
+[ekf_mpi] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_mpi] M=128  seed=42  runs=1 (warmup=1)  update_period=10  ranks=16
+  run 0  wall=158.50 ms  checksum=953.750084457513
+[ekf_mpi] median wall = 158.50 ms over 1 runs
+[ekf_mpi] wrote results/golden.csv (128 rows)
+srun: warning: can't run 1 processes on 4 nodes, setting nnodes to 1
+[ekf_mpi] loaded /shared/home/das1301/project-das1301/data/v101.bin: N=28712  T=143.555s  dt=5.000ms
+[ekf_mpi] M=1  seed=42  runs=1 (warmup=0)  update_period=10  ranks=1
+  run 0  wall=12.72 ms  checksum=7.51997944258551
+[ekf_mpi] median wall = 12.72 ms over 1 runs
+[ekf_mpi] wrote results/trajectory.csv (28712 rows)
+=== correctness check vs serial ===
+reference   : /shared/home/das1301/project-das1301/src/serial/results/golden.csv
+candidate   : results/golden.csv
+M           : 128  (m-indices match: True)
+max abs diff: 1.776e-15
+max rel diff: 2.400e-16  at m=96
+tolerance   : 1e-09
+PASS
+=== plot scaling ===
+wrote results/strong_scaling.png
+wrote results/weak_scaling.png
+=== plot trajectory comparison (serial vs openmp vs mpi) ===
+wrote results/trajectory_compare.png
+wrote results/trajectory_residual.png
+=== done ===
+total 3.9M
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 9.7K May  1 19:56 ekf_mpi_102689.out
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 2.8K May  1 19:56 golden.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 1.8K May  1 19:55 strong.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  59K May  1 19:56 strong_scaling.png
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 3.4M May  1 19:56 trajectory.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 298K May  1 19:56 trajectory_compare.png
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  59K May  1 19:56 trajectory_residual.png
+-rw-rw-r-- 1 das1301 ondemand-users-1025173 1.7K May  1 19:56 weak.csv
+-rw-rw-r-- 1 das1301 ondemand-users-1025173  43K May  1 19:56 weak_scaling.png
