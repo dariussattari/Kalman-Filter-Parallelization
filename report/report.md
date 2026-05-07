@@ -1,6 +1,5 @@
 # Parallelizing the Kalman Filter
 
-**CS 2050 Final Project**  
 **7 May 2026**  
 **Author: Darius B. Sattari**
 
